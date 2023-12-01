@@ -1,29 +1,29 @@
-function createCloseButton(li) {
-    let span = document.createElement("SPAN");
-    let txt = document.createTextNode("\u00D7");
-  
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-  
-    span.onclick = () => span.parentElement.style.display = "none";
-  }
-  
-  document.querySelectorAll('li').forEach(createCloseButton);
-  
-  document.querySelector('ul').addEventListener('click', (e) => {
-    if (e.target.tagName === 'LI')
-      e.target.classList.toggle('checked');
-  });
-  
-  function add() {
-    let li = document.createElement('LI');
-    let input_value = document.form_main.task.value;
-    let input_text = document.createTextNode(input_value);
-  
-    li.appendChild(input_text);
-    document.querySelector('ul').appendChild(li);
-    document.form_main.task.value = "";
-  
-    createCloseButton(li);
-  }
+function insert(num)
+{
+   var numero = document.getElementById('resultado').innerHTML;
+   document.getElementById('resultado').innerHTML = numero + num;
+}
+
+function clean()
+{
+    document.getElementById('resultado').innerHTML = "";
+}
+
+function back()
+{
+    var resultado = document.getElementById('resultado').innerHTML;
+    document.getElementById('resultado').innerHTML = resultado.substring(0,resultado.length - 1);
+}
+
+function calcular()
+{
+    var resultado = document.getElementById('resultado').innerHTML;
+    if(resultado)
+    {
+        document.getElementById('resultado').innerHTML = eval(resultado);
+    }
+    else
+    {
+        document.getElementById('resultado').innerHTML = "ERR0 404"
+    }
+}
