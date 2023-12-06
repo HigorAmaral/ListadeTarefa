@@ -5,36 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Lista de Tarefas</title>
-    <script>
-        function adicionarTarefa() {
-            var tarefa = document.getElementById("tarefaInput").value;
-            var li = document.createElement("li");
-            li.innerHTML = tarefa;
-
-            var btnConcluir = document.createElement("button");
-            btnConcluir.innerHTML = "Concluir";
-            btnConcluir.onclick = function () {
-                this.parentElement.remove();
-                var itemConcluido = this.parentElement;
-                document.getElementById("listaConcluidos").appendChild(itemConcluido);
-
-                var btnExcluir = document.createElement("button");
-                btnExcluir.innerHTML = "Excluir";
-                btnExcluir.onclick = function () {
-                    this.parentElement.remove();
-                };
-                itemConcluido.appendChild(btnExcluir);
-            };
-            li.appendChild(btnConcluir);
-
-            document.getElementById("listaTarefas").appendChild(li);
-        }
-    </script>
 </head>
 
 <body>
-    <div class="lista">
+    <div class="estilo">
         <input type="text" id="tarefaInput">
         <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
         <h2>Tarefas em andamento</h2>
