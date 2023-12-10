@@ -1,9 +1,10 @@
+//Quando apertar enter realizar a tarefa
 document.getElementById("tarefaInput").addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
         adicionarTarefa();
     }
 })
-
+//validar o item informado
 function adicionarTarefa() {
     let tarefa = document.getElementById("tarefaInput").value;
     if (tarefa == '') {
@@ -13,8 +14,8 @@ function adicionarTarefa() {
         let li = document.createElement("li");
         li.innerHTML = tarefa;
         tarefa = document.getElementById("tarefaInput").value = ''
-        
-        //CONCLUIR
+
+        //Botão de concluir
         let btnConcluir = document.createElement("button");
         btnConcluir.innerHTML = "Concluir";
         btnConcluir.onclick = function () {
@@ -24,7 +25,7 @@ function adicionarTarefa() {
             itemConcluido.removeChild(this);
             document.getElementById("listaConcluidos").appendChild(itemConcluido);
 
-            //EXCLUIR
+            //Botão de excluir
             let btnExcluir = document.createElement("button");
             btnExcluir.innerHTML = "Excluir";
             btnExcluir.onclick = function () {
