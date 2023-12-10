@@ -1,45 +1,40 @@
-// Criação dos elementos HTML
-// Armazena a referencia
-var input = document.createElement("input");
-input.id = "tarefaInput";
-document.body.appendChild(input);
-// criar um botão e uma lista não ordenada (ul), e adicioná-los 
-var btn = document.createElement("button");
-btn.innerHTML = "Adicionar Tarefa";
-btn.onclick = adicionarTarefa;
-document.body.appendChild(btn);
-
-var lista = document.createElement("ul");
-lista.id = "listaTarefas";
-document.body.appendChild(lista);
-
-var listaConcluidos = document.createElement("ul");
-listaConcluidos.id = "listaConcluidos";
-document.body.appendChild(listaConcluidos);
-
-// Função para adicionar tarefas
+//limpar a pesquisa
+document.getElementById("tarefaInput").addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        adicionarTarefa();
+    }
+})
+//validar as informações
 function adicionarTarefa() {
-    // obtem o valor atual
-    var tarefa = document.getElementById("tarefaInput").value;
-    // coloca o elemento na li
-    var li = document.createElement("li");
-    li.innerHTML = tarefa;
-    // botões de concluir e de excluir
-    var btnConcluir = document.createElement("button");
-    btnConcluir.innerHTML = "Concluir";
-    btnConcluir.onclick = function () {
-        this.parentElement.remove();
-        var itemConcluido = this.parentElement;
-        document.getElementById("listaConcluidos").appendChild(itemConcluido);
+    let tarefa = document.getElementById("tarefaInput").value;
+    if (tarefa == '') {
+        alert("Não deixe em branco.")
+    }
+    else {
+        let li = document.createElement("li");
+        li.innerHTML = tarefa;
+        tarefa = document.getElementById("tarefaInput").value = ''
 
-        var btnExcluir = document.createElement("button");
-        btnExcluir.innerHTML = "Excluir";
-        btnExcluir.onclick = function () {
+        // botão de concluir
+        let btnConcluir = document.createElement("button");
+        btnConcluir.innerHTML = "Concluir";
+        btnConcluir.onclick = function () {
             this.parentElement.remove();
-        };
-        itemConcluido.appendChild(btnExcluir);
-    };
-    li.appendChild(btnConcluir);
+            console.log(this);
+            let itemConcluido = this.parentElement;
+            itemConcluido.removeChild(this);
+            document.getElementById("listaConcluidos").appendChild(itemConcluido);
 
-    document.getElementById("listaTarefas").appendChild(li);
+            //botão de exluir
+            let btnExcluir = document.createElement("button");
+            btnExcluir.innerHTML = "Excluir";
+            btnExcluir.onclick = function () {
+                this.parentElement.remove();
+            };
+            itemConcluido.appendChild(btnExcluir);
+        };
+        li.appendChild(btnConcluir);
+
+        document.getElementById("listaTarefas").appendChild(li);
+    }
 }
