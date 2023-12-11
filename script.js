@@ -1,3 +1,9 @@
+document.getElementById("tarefaInput").addEventListener("keypress", (e) => {
+    if (e.key == "Enter") {
+        adicionarTarefa();
+    }
+});
+
 //validar o item informado
 function adicionarTarefa() {
     // Obtem o valor da id tarefaInput
@@ -44,5 +50,8 @@ function adicionarTarefa() {
         li.appendChild(btnConcluir);
         // Adiciona o item à lista de tarefas pendentes
         document.getElementById("listaTarefas").appendChild(li);
+        document.getElementById("tarefaInput").focus();
     }
 }
+
+document.getElementById("tarefaInput").focus();
