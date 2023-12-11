@@ -9,7 +9,9 @@ function adicionarTarefa() {
     else {
         // Cria um novo elemento <li> e adiciona o conteúdo do input a ele
         let li = document.createElement("li");
+        //  li amazena a variavel e defini como um item
         li.innerHTML = tarefa;
+        // defini o campo de escreve como vazio ai deixaria vazia
         tarefa = document.getElementById("tarefaInput").value = ''
 
         //Botão de concluir
