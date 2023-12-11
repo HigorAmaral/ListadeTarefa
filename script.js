@@ -11,6 +11,7 @@ function adicionarTarefa() {
         alert("Não deixe em branco.")
     }
     else {
+         // Cria um novo elemento <li> e adiciona o conteúdo do input a ele
         let li = document.createElement("li");
         li.innerHTML = tarefa;
         tarefa = document.getElementById("tarefaInput").value = ''
@@ -18,6 +19,7 @@ function adicionarTarefa() {
         //Botão de concluir
         let btnConcluir = document.createElement("button");
         btnConcluir.innerHTML = "Concluir";
+           // Remove o item da lista de tarefas pendentes e move para a lista de concluídas
         btnConcluir.onclick = function () {
             this.parentElement.remove();
             console.log(this);
@@ -34,7 +36,7 @@ function adicionarTarefa() {
             itemConcluido.appendChild(btnExcluir);
         };
         li.appendChild(btnConcluir);
-
+             // Adiciona o item à lista de tarefas pendentes
         document.getElementById("listaTarefas").appendChild(li);
     }
 }
