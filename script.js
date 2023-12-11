@@ -1,9 +1,3 @@
-//Quando apertar enter realizar a tarefa
-document.getElementById("tarefaInput").addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-        adicionarTarefa();
-    }
-})
 //validar o item informado
 function adicionarTarefa() {
     // Obtem o valor da id tarefaInput
